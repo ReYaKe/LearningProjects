@@ -5,9 +5,11 @@
 import secrets
 import string
 import os
+
 documents_path = os.path.join(os.path.expanduser('~'), 'Documents')
 key_path = os.path.join(documents_path, "Key.txt")
 encrypted_path = os.path.join(documents_path, "Encrypt.txt")
+alpha = "abcdefghijklmnopqrstuvwxyz0123456789"
 
 def generate_unique_rand_string(length):
   """
@@ -76,7 +78,6 @@ def encrypt(text):
     
     alphaListC = []
     repeat_action(alphaListC, depth) # Generate the List depth
-    alpha = "abcdefghijklmnopqrstuvwxyz0123456789"
 
     with open(key_path, 'w') as outfile:
         for item in alphaListC:
@@ -110,8 +111,7 @@ def decrypt(text):
     Returns:
       str: The decrypted text.
     """
-    alpha = "abcdefghijklmnopqrstuvwxyz0123456789"
-    
+
     try:
         depth = int(input("Please put in how many keys you need to enter: "))
     except ValueError as e:
