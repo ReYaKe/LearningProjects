@@ -28,12 +28,29 @@ elif octchoice == 3:
     brdcst = nID + jump - 1
     first = nID + 1
     last = brdcst - 1
+elif octchoice == 2:
+    iploct = int(ipsplit[-3])
+    maskloct = int(masksplit[-3]) 
+    jump = 256 - maskloct
+    nIP = 2**(math.log(jump, 2) + 16)
+    sbnr = int(iploct/jump)
+    nID = jump*sbnr
+    brdcst = nID + jump - 1
+    first = nID + 1
+    last = brdcst - 1
+elif octchoice == 1:
+    iploct = int(ipsplit[-4])
+    maskloct = int(masksplit[-4]) 
+    jump = 256 - maskloct
+    nIP = 2**(math.log(jump, 2) + 24)
+    sbnr = int(iploct/jump)
+    nID = jump*sbnr
+    brdcst = nID + jump - 1
+    first = nID + 1
+    last = brdcst - 1
 else:
     print("No")
     
-
-
-
 
 print(f"Jump:{jump}")
 print(f"Host IPs:{nIP}")
