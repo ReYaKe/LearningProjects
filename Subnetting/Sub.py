@@ -41,14 +41,13 @@ def subnet_calc(ip,mask,octchoice):
 ip = (input("Please input an IP-Adress: "))
 mask = (input("Please input a Subnetting-Mask: "))
 octchoice = int(input("Please input in which Octett your Subnet is: "))
-
+subnet_details = subnet_calc(ip,mask,octchoice)
 """
 for testing without input
 ip = "10.0.212.0"
 mask = "255.255.248.0"
 octchoice = 3
-subnet_details = subnet_calc(ip,mask,octchoice)"""
-
+"""
 
 for key, value in subnet_details.items():
     print(f'{key}: {value}')
