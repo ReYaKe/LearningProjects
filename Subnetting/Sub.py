@@ -4,7 +4,6 @@ mask = (input("Please input a Subnetting-Mask: "))
 octchoice = int(input("Please input in which Octett your Subnet is: "))
 ipsplit = ip.split(".")
 masksplit = mask.split(".")
-x = 2
 print(ipsplit)
 print(masksplit)
 print(octchoice)
