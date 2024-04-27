@@ -7,7 +7,7 @@ def subnet_calc(ip,mask,octchoice):
         iploct = int(ipsplit[octchoice-1])
         maskloct = int(masksplit[octchoice-1])
         jump = 256 - maskloct
-        nIP = 2 ** (math.log(jump, 2) + (8 * (4 - octchoice)))
+        nIP = (2 ** (math.log(jump, 2) + (8 * (4 - octchoice)))) - 2
         sbnr = int(iploct/jump)
         nID = jump*sbnr
         last_2 = nID + jump-1
@@ -30,7 +30,7 @@ def subnet_calc(ip,mask,octchoice):
         iploct = int(ipsplit[octchoice-1])
         maskloct = int(masksplit[octchoice-1])
         jump = 256 - maskloct
-        nIP = 2 ** (math.log(jump, 2) + (8 * (4 - octchoice)))
+        nIP = (2 ** (math.log(jump, 2) + (8 * (4 - octchoice)))) - 2
         sbnr = int(iploct/jump)
         nID = jump*sbnr
         last_2 = nID + jump-1
@@ -52,7 +52,7 @@ def subnet_calc(ip,mask,octchoice):
         iploct = int(ipsplit[octchoice-1])
         maskloct = int(masksplit[octchoice-1])
         jump = 256 - maskloct
-        nIP = 2 ** (math.log(jump, 2) + (8 * (4 - octchoice)))
+        nIP = (2 ** (math.log(jump, 2) + (8 * (4 - octchoice)))) - 2
         sbnr = int(iploct/jump)
         nID = jump*sbnr
         first = nID + 1
@@ -75,7 +75,7 @@ ip = (input("Please input an IP-Adress: "))
 mask = (input("Please input a Subnetting-Mask: "))
 octchoice = int(input("Please input in which Octett your Subnet is: "))
 
-if subnet_calc(ip,mask,octchoice) == False:
+if not subnet_calc(ip,mask,octchoice):
     print("Closing Program.")
 else:
     subnet_details = subnet_calc(ip,mask,octchoice)
